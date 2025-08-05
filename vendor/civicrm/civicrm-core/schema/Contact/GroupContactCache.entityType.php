@@ -46,6 +46,11 @@ return [
         'key_column' => 'id',
         'label_column' => 'title',
       ],
+      'entity_reference' => [
+        'entity' => 'Group',
+        'key' => 'id',
+        'on_delete' => 'CASCADE',
+      ],
     ],
     'contact_id' => [
       'title' => ts('Contact ID'),
@@ -56,6 +61,11 @@ return [
       'add' => '2.1',
       'input_attrs' => [
         'label' => ts('Contact'),
+      ],
+      'entity_reference' => [
+        'entity' => 'Contact',
+        'key' => 'id',
+        'on_delete' => 'CASCADE',
       ],
     ],
   ],

@@ -196,7 +196,12 @@ class AutocompleteAction extends AbstractAction {
       $this->addFilter(implode(',', array_unique($searchFields)), $this->input);
     }
 
-    $apiResult = $this->getApiResult($return);
+    $apiResult = \Civi\Api4\SearchDisplay::run(FALSE)
+      ->setSavedSearch($this->savedSearch)
+      ->setDisplay($this->display)
+      ->setFilters($this->filters)
+      ->setReturn($return)
+      ->execute();
 
     foreach ($apiResult as $row) {
       $item = [
@@ -312,20 +317,6 @@ class AutocompleteAction extends AbstractAction {
   public function getPermissions() {
     // Permissions for this action are checked internally
     return [];
-  }
-
-  /**
-   * @param string|null $return
-   * @return \Civi\Api4\Result\SearchDisplayRunResult
-   */
-  private function getApiResult(?string $return): \Civi\Api4\Result\SearchDisplayRunResult {
-    $apiResult = \Civi\Api4\SearchDisplay::run(FALSE)
-      ->setSavedSearch($this->savedSearch)
-      ->setDisplay($this->display)
-      ->setFilters($this->filters)
-      ->setReturn($return)
-      ->execute();
-    return $apiResult;
   }
 
 }

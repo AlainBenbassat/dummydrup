@@ -49,7 +49,7 @@ return [
     'url' => [
       'title' => ts('Website'),
       'sql_type' => 'varchar(2048)',
-      'input_type' => 'Url',
+      'input_type' => 'Text',
       'description' => ts('Website'),
       'add' => '3.2',
       'usage' => [

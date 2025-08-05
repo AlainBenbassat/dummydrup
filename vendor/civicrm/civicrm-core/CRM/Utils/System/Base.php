@@ -69,32 +69,25 @@ abstract class CRM_Utils_System_Base {
    * @var int|string $print
    *   Should match a CRM_Core_Smarty::PRINT_* constant,
    *   or equal 0 if not in print mode.
-   *
-   * @todo when php7.4 is no more, switch the `switch` to a `match`
    */
   public static function getContentTemplate($print = 0): string {
-    // I fear some callers of this function may still pass FALSE
-    // let's make sure any falsey value is exactly 0
-    $print = $print ?: 0;
+    if ($print === CRM_Core_Smarty::PRINT_JSON) {
+      return 'CRM/common/snippet.tpl';
+    }
 
-    // switch uses lazy type comparison
-    // on php < 8 this causes strange results when comparing
-    // string like 'json' with integer 0
-    // so we use this workaround
-    switch (TRUE) {
-      case ($print === 0):
+    switch ($print) {
+      case 0:
         // Not a print context.
         // Despite what the template is called
         return 'CRM/common/CMSPrint.tpl';
 
-      case ($print === CRM_Core_Smarty::PRINT_PAGE):
+      case CRM_Core_Smarty::PRINT_PAGE:
         return 'CRM/common/print.tpl';
 
-      case ($print === 'xls'):
-      case ($print === 'doc'):
+      case 'xls':
+      case 'doc':
         return 'CRM/Contact/Form/Task/Excel.tpl';
 
-      case ($print === CRM_Core_Smarty::PRINT_JSON):
       default:
         return 'CRM/common/snippet.tpl';
     }
@@ -122,7 +115,6 @@ abstract class CRM_Utils_System_Base {
    *   The new string to be appended.
    */
   public function addHTMLHead($head) {
-    \CRM_Core_Error::deprecatedFunctionWarning("addHTMLHead is deprecated in " . self::class);
   }
 
   /**
@@ -347,42 +339,26 @@ abstract class CRM_Utils_System_Base {
   }
 
   /**
-   * @see https://lab.civicrm.org/dev/core/-/issues/5803
-   *
    * If we are using a theming system, invoke theme, else just print the content.
    *
    * @param string $content
    *   The content that will be themed.
    * @param bool $print
+   *   Are we displaying to the screen or bypassing theming?.
    * @param bool $maintenance
-   *   DEPRECATED - use renderMaintenanceMessage instead,
+   *   For maintenance mode.
    *
    * @throws Exception
    * @return string|null
    *   NULL, If $print is FALSE, and some other criteria match up.
    *   The themed string, otherwise.
    *
-   * @todo Remove maintenance param
    * @todo The return value is inconsistent.
    * @todo Better to always return, and never print.
    */
   public function theme(&$content, $print = FALSE, $maintenance = FALSE) {
-    if ($maintenance) {
-      \CRM_Core_Error::deprecatedWarning('Calling CRM_Utils_System::theme with $maintenance is deprecated - use renderMaintenanceMessage instead');
-      $content = $this->renderMaintenanceMessage($content);
-    }
     print $content;
     return NULL;
-  }
-
-  /**
-   * Wrap content in maintenance template
-   *
-   * @param string $content
-   * @return string
-   */
-  public function renderMaintenanceMessage(string $content): string {
-    return $content;
   }
 
   /**

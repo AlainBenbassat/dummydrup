@@ -17,8 +17,6 @@
 
 /**
  * This class provides the common functionality for sending email to one or a group of contact ids.
- *
- * @deprecated since 6.3 will be removed around 6.15
  */
 class CRM_Contact_Form_Task_LabelCommon {
 
@@ -31,11 +29,8 @@ class CRM_Contact_Form_Task_LabelCommon {
    *   Format in which labels needs to be printed.
    * @param string $fileName
    *   The name of the file to save the label in.
-   *
-   * @deprecated since 6.3 will be removed around 6.15
    */
   public static function createLabel($contactRows, $format, $fileName = 'MailingLabels_CiviCRM.pdf') {
-    CRM_Core_Error::deprecatedFunctionWarning('no alternative');
     if (CIVICRM_UF === 'UnitTests') {
       throw new CRM_Core_Exception_PrematureExitException('civiExit called', ['rows' => $contactRows, 'format' => $format, 'file_name' => $fileName]);
     }
@@ -68,11 +63,8 @@ class CRM_Contact_Form_Task_LabelCommon {
    *
    * @return array
    *   Array of rows for labels
-   *
-   * @deprecated since 6.3 will be removed around 6.15
    */
   public static function getRows($contactIDs, $locationTypeID, $respectDoNotMail, $mergeSameAddress, $mergeSameHousehold) {
-    CRM_Core_Error::deprecatedFunctionWarning('no alternative');
     $locName = NULL;
     $rows = [];
     //get the address format sequence from the config file
@@ -169,11 +161,8 @@ class CRM_Contact_Form_Task_LabelCommon {
    * @return array
    *   return properties for address e.g
    *   [street_address => 1, supplemental_address_1 => 1, supplemental_address_2 => 1]
-   *
-   * @deprecated since 6.3 will be removed around 6.15
    */
   public static function getAddressReturnProperties(): array {
-    CRM_Core_Error::deprecatedFunctionWarning('no alternative');
     $mailingFormat = Civi::settings()->get('mailing_format');
 
     $addressFields = CRM_Utils_Address::sequence($mailingFormat);
@@ -189,11 +178,8 @@ class CRM_Contact_Form_Task_LabelCommon {
    * @param array $rows
    *
    * @return array
-   *
-   * @deprecated since 6.3 will be removed around 6.15
    */
   public static function mergeSameHousehold(&$rows) {
-    CRM_Core_Error::deprecatedFunctionWarning('no alternative');
     // group selected contacts by type
     $individuals = [];
     $households = [];

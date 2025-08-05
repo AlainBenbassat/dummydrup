@@ -92,7 +92,7 @@ class CRM_Utils_AutoClean {
     // Backup the old settings
     $oldExplicitSettings = [];
     foreach ($newSettings as $name => $newSetting) {
-      if ($settings->hasExplicit($name)) {
+      if ($settings->hasExplict($name)) {
         $oldExplicitSettings[$name] = $settings->getExplicit($name);
       }
       if ($settings->getMandatory($name) !== NULL) {

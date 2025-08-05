@@ -103,7 +103,7 @@ return [
               'label' => E::ts('Page Title'),
               'sortable' => TRUE,
               'link' => [
-                'path' => 'frontend://civicrm/pcp/info/?reset=1&id=[id]',
+                'path' => 'civicrm/pcp/info/?reset=1&id=[id]',
                 'entity' => '',
                 'action' => '',
                 'join' => '',

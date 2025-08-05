@@ -52,7 +52,7 @@ return [
     ],
     'bounce_reason' => [
       'title' => ts('Bounce Reason'),
-      'sql_type' => 'varchar(512)',
+      'sql_type' => 'varchar(255)',
       'input_type' => 'Text',
       'description' => ts('The reason the email bounced.'),
     ],

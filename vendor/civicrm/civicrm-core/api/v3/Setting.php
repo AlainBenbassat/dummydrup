@@ -44,14 +44,10 @@ function civicrm_api3_setting_getfields($params) {
     //usage really easy
     $params['filters']['name'] = $params['name'];
   }
-  $domainID = $params['domain_id'] ?? NULL;
-  if ($domainID === 'current_domain') {
-    $domainID = NULL;
-  }
   $result = CRM_Core_BAO_Setting::getSettingSpecification(
     $params['component_id'] ?? NULL,
     $params['filters'] ?? [],
-    $domainID,
+    $params['domain_id'] ?? NULL,
     $params['profile'] ?? NULL
   );
   // find any supplemental information

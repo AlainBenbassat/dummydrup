@@ -177,8 +177,6 @@ class CoreUtil {
     $operators = \CRM_Core_DAO::acceptedSQLOperators();
     $operators[] = 'CONTAINS';
     $operators[] = 'NOT CONTAINS';
-    $operators[] = 'CONTAINS ONE OF';
-    $operators[] = 'NOT CONTAINS ONE OF';
     $operators[] = 'IS EMPTY';
     $operators[] = 'IS NOT EMPTY';
     $operators[] = 'REGEXP';

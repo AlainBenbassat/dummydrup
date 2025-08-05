@@ -456,7 +456,6 @@ class CRM_Core_Form extends HTML_QuickForm_Page {
       'autocomplete',
       'validContact',
       'email',
-      'numberInternational',
     ];
 
     foreach ($rules as $rule) {
@@ -1823,17 +1822,16 @@ class CRM_Core_Form extends HTML_QuickForm_Page {
   /**
    * Handles a repeated bit supplying a placeholder for entity selection
    *
-   * @param array $props
+   * @param string $props
    *   The field properties, including the entity and context.
    * @param bool $required
    *   If the field is required.
-   * @param string|null $title
+   * @param string $title
    *   A field title, if applicable.
-   *
-   * @return string|null
+   * @return string
    *   The placeholder text.
    */
-  private static function selectOrAnyPlaceholder(array $props, bool $required, ?string $title = NULL): ?string {
+  private static function selectOrAnyPlaceholder($props, $required, $title = NULL) {
     if (empty($props['entity'])) {
       return NULL;
     }
@@ -3187,7 +3185,7 @@ class CRM_Core_Form extends HTML_QuickForm_Page {
     // Numeric fields are not in submittableMoneyFields (for now)
     $fieldRules = $this->_rules[$fieldName] ?? [];
     foreach ($fieldRules as $rule) {
-      if ('money' === $rule['type'] || 'numberInternational' === $rule['type']) {
+      if ('money' === $rule['type']) {
         return CRM_Utils_Rule::cleanMoney($value);
       }
     }

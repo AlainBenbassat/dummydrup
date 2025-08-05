@@ -36,7 +36,7 @@ class ComposerStaticInit7cab6316d87afcc673e144e8a49a1a9a
         '2f69d3914119f042cca9e44442d5ce95' => __DIR__ . '/../..' . '/web/core/includes/bootstrap.inc',
         '47e1160838b5e5a10346ac4084b58c23' => __DIR__ . '/..' . '/laravel/prompts/src/helpers.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
-        'fa3ab6703014a9cb0baa911a0a146d8e' => __DIR__ . '/..' . '/composer/autoload_civicrm_asset.php',
+        'f099c33209aa08a3b0f7bdff0f7c32dc' => __DIR__ . '/..' . '/composer/autoload_civicrm_asset.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -736,16 +736,16 @@ class ComposerStaticInit7cab6316d87afcc673e144e8a49a1a9a
         array (
             'Net' => 
             array (
-                0 => __DIR__ . '/..' . '/pear/net_socket',
-                1 => __DIR__ . '/..' . '/pear/net_smtp',
+                0 => __DIR__ . '/..' . '/pear/net_smtp',
+                1 => __DIR__ . '/..' . '/pear/net_socket',
             ),
         ),
         'M' => 
         array (
             'Mail' => 
             array (
-                0 => __DIR__ . '/..' . '/pear/mail_mime',
-                1 => __DIR__ . '/..' . '/pear/mail',
+                0 => __DIR__ . '/..' . '/pear/mail',
+                1 => __DIR__ . '/..' . '/pear/mail_mime',
             ),
         ),
         'L' => 

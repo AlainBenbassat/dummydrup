@@ -88,8 +88,6 @@ function standaloneusers_civicrm_navigationMenu(&$menu) {
     'url' => 'civicrm/admin/setting/standaloneusers?reset=1',
     'permission' => 'cms:administer users',
   ]);
-
-  \Civi\Standalone\Utils::alterHomeMenuItems($menu);
 }
 
 /**

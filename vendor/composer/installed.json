@@ -21,7 +21,10 @@
             "time": "2018-09-27T09:45:05+00:00",
             "type": "library",
             "extra": {
-                "patches_applied": []
+                "patches_applied": {
+                    "Apply patch to fix php8.2 deprecation notice on dynamic property $filename": "https://download.civicrm.org/patches/011c5f09dc27b260937380f7a9ef5ad1fa713ae206b0b66ce03decc1932fc3f6/17.patch",
+                    "Update gitignore to ensure that sites that manage via git don't miss out on the important db.json file": "https://download.civicrm.org/patches/ffb6c65c6caa0a8a648f167f8800072d50ca0e4138002c52c05065be0ae60a63/15.patch"
+                }
             },
             "installation-source": "dist",
             "autoload": {
@@ -405,17 +408,17 @@
         },
         {
             "name": "civicrm/civicrm-core",
-            "version": "6.4.0",
-            "version_normalized": "6.4.0.0",
+            "version": "6.3.2",
+            "version_normalized": "6.3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/civicrm/civicrm-core.git",
-                "reference": "c65014fa7b554f958c76529bd0c43857e170d73d"
+                "reference": "6bdf4c122348e57b708ff31d76fc45dad21ae1f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/civicrm/civicrm-core/zipball/c65014fa7b554f958c76529bd0c43857e170d73d",
-                "reference": "c65014fa7b554f958c76529bd0c43857e170d73d",
+                "url": "https://api.github.com/repos/civicrm/civicrm-core/zipball/6bdf4c122348e57b708ff31d76fc45dad21ae1f8",
+                "reference": "6bdf4c122348e57b708ff31d76fc45dad21ae1f8",
                 "shasum": ""
             },
             "require": {
@@ -428,15 +431,11 @@
                 "cweagans/composer-patches": "~1.0",
                 "dmore/chrome-mink-driver": "^2.9",
                 "dompdf/dompdf": "~2.0.4|| ~3.0",
-                "ext-bcmath": "*",
-                "ext-curl": "*",
                 "ext-fileinfo": "*",
                 "ext-intl": "*",
                 "ext-json": "*",
                 "ext-mbstring": "*",
                 "ext-mysqli": "*",
-                "ext-xml": "*",
-                "ext-zip": "*",
                 "ezyang/htmlpurifier": "^4.13",
                 "firebase/php-jwt": ">=3 <7",
                 "guzzlehttp/guzzle": "^6.3 || ^7.3",
@@ -487,7 +486,7 @@
                 "zetacomponents/base": "1.9.*",
                 "zetacomponents/mail": "~1.9.4"
             },
-            "time": "2025-07-03T08:54:35+00:00",
+            "time": "2025-07-02T07:04:23+00:00",
             "type": "library",
             "extra": {
                 "patches": {
@@ -887,6 +886,9 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "vendor/tecnickcom"
+            ],
             "license": [
                 "AGPL-3.0-or-later"
             ],
@@ -914,7 +916,7 @@
             ],
             "description": "Open source constituent relationship management for non-profits, NGOs and advocacy organizations.",
             "support": {
-                "source": "https://github.com/civicrm/civicrm-core/tree/6.4.0"
+                "source": "https://github.com/civicrm/civicrm-core/tree/6.3.2"
             },
             "funding": [
                 {
@@ -5035,7 +5037,10 @@
             "time": "2024-04-15T21:14:06+00:00",
             "type": "library",
             "extra": {
-                "patches_applied": []
+                "patches_applied": {
+                    "Apply CiviCRM Customisations for the pear:db package": "https://download.civicrm.org/patches/83a3d0dd9f8e555a474ee433c453ff741a4dedf1983bad8b3566136e90f9c46b/pear_db_civicrm_changes.patch",
+                    "Ensure that error messages about MySQL-SSL connections are reported": "https://download.civicrm.org/patches/a6e31a769218801fb1fb3d679ff72d3d8a7c5637d3bb7b78680cd7809552e0c6/mysqli-ssl.patch"
+                }
             },
             "installation-source": "dist",
             "autoload": {
@@ -5176,7 +5181,9 @@
             "time": "2024-01-15T21:56:23+00:00",
             "type": "library",
             "extra": {
-                "patches_applied": []
+                "patches_applied": {
+                    "Apply CiviCRM Customisations for CRM-1367 and CRM-5946": "https://download.civicrm.org/patches/00da3cfcfe0d24420665f3015a5d3ea72dc331a52636f009883892ed3c7fbf84/pear-mail.patch"
+                }
             },
             "installation-source": "dist",
             "autoload": {
@@ -5243,7 +5250,9 @@
             "time": "2024-03-10T20:20:27+00:00",
             "type": "library",
             "extra": {
-                "patches_applied": []
+                "patches_applied": {
+                    "Apply patch for CRM-3133 wordwrap body to be 750 characters to apply with RFC 2821": "https://download.civicrm.org/patches/38231167f0c789e0b368b38c1499973d562de65e87094b402156a6b928cc4c38/crm_3133.patch"
+                }
             },
             "installation-source": "dist",
             "autoload": {
@@ -5307,7 +5316,9 @@
             "time": "2024-04-15T19:42:15+00:00",
             "type": "library",
             "extra": {
-                "patches_applied": []
+                "patches_applied": {
+                    "Add in CiviCRM custom error message for CRM-8744": "https://download.civicrm.org/patches/ee02d81d09432e524b249c9d874c9756b88924df8f5a8d69b19e8b4d6f532327/error-msg.patch"
+                }
             },
             "installation-source": "dist",
             "autoload": {
@@ -10975,7 +10986,10 @@
             "time": "2024-08-20T08:42:42+00:00",
             "type": "library",
             "extra": {
-                "patches_applied": []
+                "patches_applied": {
+                    "CiviCRM Custom Patches for ZetaCompoents mail": "https://download.civicrm.org/patches/6e4bd36dd432a1e62830b0c757a3bac9645ea1cfc551db39798a88c06d66aaf3/100-filename.patch",
+                    "CiviCRM Custom patch to fix a php8.1 issue found in CiviCRM unit tests": "https://download.civicrm.org/patches/d187bcd1100b99529705cdd61193efa683951f6cfbc97ecaa69bc6cd601d2e5f/200-php-81.patch"
+                }
             },
             "installation-source": "dist",
             "autoload": {

@@ -66,6 +66,11 @@ return [
         'key_column' => 'id',
         'label_column' => 'name',
       ],
+      'entity_reference' => [
+        'entity' => 'ACL',
+        'key' => 'id',
+        'on_delete' => 'CASCADE',
+      ],
     ],
     'modified_date' => [
       'title' => ts('Cache Modified Date'),

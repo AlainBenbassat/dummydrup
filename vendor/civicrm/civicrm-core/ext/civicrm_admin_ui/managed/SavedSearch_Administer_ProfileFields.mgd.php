@@ -124,7 +124,7 @@ return [
               'dataType' => 'Boolean',
               'label' => E::ts('Reserved'),
               'sortable' => TRUE,
-              'rewrite' => '[none]',
+              'rewrite' => ' ',
               'icons' => [
                 [
                   'icon' => 'fa-lock',

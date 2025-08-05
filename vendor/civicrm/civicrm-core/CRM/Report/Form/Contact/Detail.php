@@ -998,8 +998,4 @@ HERESQL;
     ];
   }
 
-  public function getFormComponent(): array {
-    return $this->_formComponent ?? [];
-  }
-
 }

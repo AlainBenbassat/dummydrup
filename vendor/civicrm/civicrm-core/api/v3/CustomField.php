@@ -235,7 +235,7 @@ function _civicrm_api3_custom_field_validate_field($fieldName, $value, $fieldDet
       break;
 
     case 'Float':
-      if (!is_numeric($value)) {
+      if (!CRM_Utils_Rule::numeric($value)) {
         $errors[$fieldName] = 'Invalid numeric value for ' . $fieldName;
       }
       break;

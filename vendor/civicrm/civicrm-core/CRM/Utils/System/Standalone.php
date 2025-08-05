@@ -160,30 +160,34 @@ class CRM_Utils_System_Standalone extends CRM_Utils_System_Base {
 
   /**
    * @inheritDoc
-   *
-   * Note: Standalone renders the html-header region directly in its smarty page template
-   * so this should never be called
    */
   public function addHTMLHead($header) {
-    throw new \CRM_Core_Exception('addHTMLHead should never be called in Standalone');
+    $template = CRM_Core_Smarty::singleton();
+    // Smarty's append function does not check for the existence of the var before appending to it.
+    // So this prevents a stupid notice error:
+    $template->ensureVariablesAreAssigned(['pageHTMLHead']);
+    $template->append('pageHTMLHead', $header);
+    return;
   }
 
   /**
-   * @inheritdoc
-   *
-   * No such things as CMS-rendering in Standalone => always return FALSE
+   * @inheritDoc
    */
   public function addStyleUrl($url, $region) {
-    return FALSE;
+    if ($region != 'html-header') {
+      return FALSE;
+    }
+    $this->addHTMLHead('<link rel="stylesheet" href="' . $url . '"></style>');
   }
 
   /**
-   * @inheritdoc
-   *
-   * No such things as CMS-rendering in Standalone => always return FALSE
+   * @inheritDoc
    */
   public function addStyle($code, $region) {
-    return FALSE;
+    if ($region != 'html-header') {
+      return FALSE;
+    }
+    $this->addHTMLHead('<style>' . $code . '</style>');
   }
 
   /**
@@ -326,35 +330,28 @@ class CRM_Utils_System_Standalone extends CRM_Utils_System_Base {
    */
   public function theme(&$content, $print = FALSE, $maintenance = FALSE) {
     if ($maintenance) {
-      \CRM_Core_Error::deprecatedWarning('Calling CRM_Utils_Base::theme with $maintenance is deprecated - use renderMaintenanceMessage instead');
-      $content = $this->renderMaintenanceMessage($content, $print);
+      // if maintenance, we need to wrap in a minimal header
+      $headerContent = CRM_Core_Region::instance('html-header', FALSE)->render('');
+
+      // note - now adding #crm-container is a hacky way to avoid rendering
+      // the civicrm menubar. @todo a better way
+      $content = <<<HTML
+        <!DOCTYPE html >
+        <html class="crm-standalone">
+          <head>
+            {$headerContent}
+          </head>
+          <body>
+            <div class="crm-container standalone-page-padding">
+              {$content}
+            </div>
+          </body>
+        </html>
+      HTML;
     }
+
     print $content;
     return NULL;
-  }
-
-  /**
-   * @inheritDoc
-   */
-  public function renderMaintenanceMessage(string $content): string {
-    // wrap in a minimal header
-    $headerContent = CRM_Core_Region::instance('html-header', FALSE)->render('');
-
-    // note - not adding #crm-container is a hacky way to avoid rendering
-    // the civicrm menubar. @todo a better way
-    return <<<HTML
-      <!DOCTYPE html >
-      <html class="crm-standalone">
-        <head>
-          {$headerContent}
-        </head>
-        <body>
-          <div class="crm-container standalone-page-padding">
-            {$content}
-          </div>
-        </body>
-      </html>
-    HTML;
   }
 
   /**

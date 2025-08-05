@@ -399,10 +399,6 @@
   name        : David Glick
   organization: Glick Software
 
-- github      : DieEinzigWahreWarsteinerin
-  name        : Evita Wagner
-  organization: ASMAC (American Society of Music Arrangers and Composers)
-
 - github      : deb1990
   name        : Debarshi Bhaumik
   organization: CompuCorp
@@ -989,10 +985,6 @@
   name        : Carl Andrew Lema
   organization: Kanzu Code
 
-- github      : lenajukna
-  name        : Lena Jukna
-  organization: SYSTOPIA
-
 - github      : Levi-70
   name        : Levi.k
 
@@ -1403,8 +1395,6 @@
   name        : Rasmus Winter
   organization: Outlandish
 
-- github      : RaulJMCD
-
 - github      : ray-wright
   name        : Ray Wright
 
@@ -1489,10 +1479,6 @@
   organization: Palante Technology Cooperative
 
 - name        : Steve Binkowski
-
-- github      : stuart897
-  name        : Stuart
-  organization: NIAB
 
 - github      : shaneonabike
   name        : Shane Bill
@@ -1920,7 +1906,3 @@
 - github      : pzukowicz
   name        : Patryk Żukowicz
   organization: TechSoup
-
-- github      : shahrukh-compuco
-  name        : Muhammad Shahrukh
-  organization: CompuCo

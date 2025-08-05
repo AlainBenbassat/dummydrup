@@ -280,9 +280,8 @@ function __civicrm_api3_attachment_find($params, $id, $file, $entityFile, $isTru
     }
   }
 
-  $join_type = empty($entityFile) ? 'LEFT' : 'INNER';
   $select = CRM_Utils_SQL_Select::from('civicrm_file cf')
-    ->join('cef', $join_type . ' JOIN civicrm_entity_file cef ON cf.id = cef.file_id')
+    ->join('cef', 'INNER JOIN civicrm_entity_file cef ON cf.id = cef.file_id')
     ->select([
       'cf.id',
       'cf.uri',

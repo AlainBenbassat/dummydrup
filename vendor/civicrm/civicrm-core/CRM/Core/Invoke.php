@@ -215,9 +215,11 @@ class CRM_Core_Invoke {
       }
 
       $template = CRM_Core_Smarty::singleton();
-
-      $template->assign('urlIsPublic', CRM_Core_Config::singleton()->userSystem->isFrontEndPage());
-      if (empty($item['is_public'])) {
+      if (!empty($item['is_public'])) {
+        $template->assign('urlIsPublic', TRUE);
+      }
+      else {
+        $template->assign('urlIsPublic', FALSE);
         self::statusCheck($template);
       }
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "80d13726feb82973ebaadd2c4d9c2968",
+    "content-hash": "6a9fe63fc3bf3e6dc69a32410819301f",
     "packages": [
         {
             "name": "adrienrn/php-mimetyper",
@@ -327,16 +327,16 @@
         },
         {
             "name": "civicrm/civicrm-core",
-            "version": "6.4.0",
+            "version": "6.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/civicrm/civicrm-core.git",
-                "reference": "c65014fa7b554f958c76529bd0c43857e170d73d"
+                "reference": "6bdf4c122348e57b708ff31d76fc45dad21ae1f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/civicrm/civicrm-core/zipball/c65014fa7b554f958c76529bd0c43857e170d73d",
-                "reference": "c65014fa7b554f958c76529bd0c43857e170d73d",
+                "url": "https://api.github.com/repos/civicrm/civicrm-core/zipball/6bdf4c122348e57b708ff31d76fc45dad21ae1f8",
+                "reference": "6bdf4c122348e57b708ff31d76fc45dad21ae1f8",
                 "shasum": ""
             },
             "require": {
@@ -349,15 +349,11 @@
                 "cweagans/composer-patches": "~1.0",
                 "dmore/chrome-mink-driver": "^2.9",
                 "dompdf/dompdf": "~2.0.4|| ~3.0",
-                "ext-bcmath": "*",
-                "ext-curl": "*",
                 "ext-fileinfo": "*",
                 "ext-intl": "*",
                 "ext-json": "*",
                 "ext-mbstring": "*",
                 "ext-mysqli": "*",
-                "ext-xml": "*",
-                "ext-zip": "*",
                 "ezyang/htmlpurifier": "^4.13",
                 "firebase/php-jwt": ">=3 <7",
                 "guzzlehttp/guzzle": "^6.3 || ^7.3",
@@ -806,6 +802,9 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "vendor/tecnickcom"
+            ],
             "license": [
                 "AGPL-3.0-or-later"
             ],
@@ -833,7 +832,7 @@
             ],
             "description": "Open source constituent relationship management for non-profits, NGOs and advocacy organizations.",
             "support": {
-                "source": "https://github.com/civicrm/civicrm-core/tree/6.4.0"
+                "source": "https://github.com/civicrm/civicrm-core/tree/6.3.2"
             },
             "funding": [
                 {
@@ -841,7 +840,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2025-07-03T08:54:35+00:00"
+            "time": "2025-07-02T07:04:23+00:00"
         },
         {
             "name": "civicrm/civicrm-drupal-8",
@@ -10603,5 +10602,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

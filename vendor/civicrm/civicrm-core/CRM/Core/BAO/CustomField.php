@@ -1563,11 +1563,7 @@ SELECT id
 
     $fileID = NULL;
 
-    // dev/core#5827 - Allow file values to be unset, but only for api calls (indicated with $includeViewOnly == true)
-    if ($customFields[$customFieldId]['data_type'] === 'File' && $includeViewOnly && $value === '') {
-      // Pass-thru empty value
-    }
-    elseif ($customFields[$customFieldId]['data_type'] === 'File') {
+    if ($customFields[$customFieldId]['data_type'] == 'File') {
       if (empty($value)) {
         return;
       }

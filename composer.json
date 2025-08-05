@@ -18,7 +18,7 @@
         "civicrm/civicrm-core": "*",
         "civicrm/civicrm-drupal-8": "*",
         "civicrm/civicrm-packages": "*",
-        "civicrm/cli-tools": "*",
+        "civicrm/cli-tools": "^2025.06",
         "composer/installers": "^2.0",
         "drupal/core-composer-scaffold": "^10.5",
         "drupal/core-project-message": "^10.5",
@@ -100,7 +100,8 @@
                 "      composer remove drupal/core-project-message"
             ]
         },
-        "enable-patching": "true"
+        "enable-patching": "true",
+        "compile-whitelist": ["civicrm/civicrm-core", "civicrm/composer-compile-lib"]
     },
     "require-dev": {
         "drush/drush": "^13.6"
